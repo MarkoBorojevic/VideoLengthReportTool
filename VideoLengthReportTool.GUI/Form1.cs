@@ -55,5 +55,18 @@ namespace VideoLengthReportTool.GUI
                 exportButton.Enabled = true;
             }
         }
+
+        private void videoFilesBox_DragDrop(object sender, DragEventArgs e)
+        {
+            videoFilesBox.Items.AddRange(e.Data.GetData(DataFormats.FileDrop) as string[]);
+        }
+
+        private void videoFilesBox_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else
+                e.Effect = DragDropEffects.None;
+        }
     }
 }

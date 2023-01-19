@@ -31,7 +31,7 @@ namespace VideoLengthReportTool
 
                     for (int i = 0; i < files.Length; i++)
                     {
-                        xlWorkSheet.Cells[i + 2, 1] = files[i];
+                        xlWorkSheet.Cells[i + 2, 1] = Path.GetFileName(files[i]);
                         xlWorkSheet.Cells[i + 2, 2] = GetVideoDuration(files[i]).ToString(@"hh\:mm\:ss");
                     }
 

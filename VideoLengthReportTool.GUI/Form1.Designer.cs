@@ -36,6 +36,7 @@
             // 
             // videoFilesBox
             // 
+            this.videoFilesBox.AllowDrop = true;
             this.videoFilesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -46,6 +47,8 @@
             this.videoFilesBox.Name = "videoFilesBox";
             this.videoFilesBox.Size = new System.Drawing.Size(339, 205);
             this.videoFilesBox.TabIndex = 0;
+            this.videoFilesBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoFilesBox_DragDrop);
+            this.videoFilesBox.DragOver += new System.Windows.Forms.DragEventHandler(this.videoFilesBox_DragOver);
             // 
             // addItemButton
             // 
