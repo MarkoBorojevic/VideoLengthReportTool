@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoLengthReportTool", "VideoLengthReportTool\VideoLengthReportTool.csproj", "{DFFC45D6-1C2C-4C2E-808E-42FC9319004E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoLengthReportTool.GUI", "VideoLengthReportTool.GUI\VideoLengthReportTool.GUI.csproj", "{2332AA0C-7ACE-45CE-A2CC-BAAA4C9090FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vidrepGUI", "vidrepGUI\vidrepGUI.csproj", "{B34D9FAC-4251-4B42-9B53-0FB6BB824DE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFFC45D6-1C2C-4C2E-808E-42FC9319004E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFFC45D6-1C2C-4C2E-808E-42FC9319004E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFFC45D6-1C2C-4C2E-808E-42FC9319004E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFFC45D6-1C2C-4C2E-808E-42FC9319004E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2332AA0C-7ACE-45CE-A2CC-BAAA4C9090FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2332AA0C-7ACE-45CE-A2CC-BAAA4C9090FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2332AA0C-7ACE-45CE-A2CC-BAAA4C9090FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2332AA0C-7ACE-45CE-A2CC-BAAA4C9090FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34D9FAC-4251-4B42-9B53-0FB6BB824DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34D9FAC-4251-4B42-9B53-0FB6BB824DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34D9FAC-4251-4B42-9B53-0FB6BB824DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34D9FAC-4251-4B42-9B53-0FB6BB824DE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

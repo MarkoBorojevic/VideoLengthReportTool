@@ -1,4 +1,5 @@
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.IO;
 
 namespace VideoLengthReportTool.GUI
@@ -18,6 +19,7 @@ namespace VideoLengthReportTool.GUI
         void UpdateUI()
         {
             removeFileButton.Enabled = videoFilesBox.SelectedIndex != -1;
+            openButton.Enabled = videoFilesBox.SelectedIndex != -1;
         }
 
         static string[] mediaExtensions = {
@@ -32,7 +34,7 @@ namespace VideoLengthReportTool.GUI
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                videoFilesBox.Items.AddRange(dlg.FileNames);
+                videoFilesBox.Items.AddRange(dlg.FileNames.Select(x => new FileEntry(x)).ToArray());
             }
         }
 
@@ -54,8 +56,13 @@ namespace VideoLengthReportTool.GUI
                 exportButton.Enabled = false;
                 exportButton.Text = "Exporting...";
 
-                MessageBox.Show($"Export status: {await LengthTool.ExportVideoDurations(videoFilesBox.Items.Cast<string>().ToArray(), dlg.FileName)}", $"{dlg.FileName}");
-
+                try {
+                    LengthTool.ExportVideoDurations(videoFilesBox.Items.Cast<FileEntry>().ToArray(), dlg.FileName);
+                    MessageBox.Show($"Exported to {dlg.FileName}");
+                } catch(Exception er)
+                {
+                    MessageBox.Show($"Error during export:\n\n{er}", "Failed to export", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 exportButton.Text = "Export";
                 exportButton.Enabled = true;
             }
@@ -82,15 +89,15 @@ namespace VideoLengthReportTool.GUI
             }
         }
 
-        string[] CheckDirectory(string directory)
+        FileEntry[] CheckDirectory(string directory)
         {
-            List<string> files = new List<string>();
+            List<FileEntry> files = new List<FileEntry>();
 
             foreach(var path in Directory.GetFiles(directory))
             {
                 if(mediaExtensions.Contains(Path.GetExtension(path)))
                 {
-                    files.Add(path);
+                    files.Add(new FileEntry(path));
                 }
             }
 
@@ -108,6 +115,15 @@ namespace VideoLengthReportTool.GUI
                 e.Effect = DragDropEffects.Link;
             else
                 e.Effect = DragDropEffects.None;
+        }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            using Process fileopener = new Process();
+
+            fileopener.StartInfo.FileName = "explorer";
+            fileopener.StartInfo.Arguments = "\"" + ((FileEntry)videoFilesBox.SelectedItem).filePath + "\"";
+            fileopener.Start();
         }
     }
 }

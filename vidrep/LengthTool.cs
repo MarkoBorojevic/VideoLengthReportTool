@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using Microsoft.Office.Interop.Excel;
 using Microsoft.WindowsAPICodePack.Shell;
 using Range = Microsoft.Office.Interop.Excel.Range;
 
-namespace VideoLengthReportTool
+namespace vidrep
 {
     public class LengthTool
     {
@@ -36,7 +37,7 @@ namespace VideoLengthReportTool
                 xlWorkSheet.Cells[i + 2, 3] = !files[i].valid ? "N/A" : files[i].VideoLength;
                 xlWorkSheet.Cells[i + 2, 4] = !files[i].valid ? "N/A" : files[i].DateCreated;
 
-                xlWorkSheet.Range[$"A{i + 2}",$"F{i + 2}"].Font.Color = ColorTranslator.ToOle(files[i].valid ? Color.Black : Color.Red);
+                xlWorkSheet.Range[$"A{i + 2}", $"F{i + 2}"].Font.Color = ColorTranslator.ToOle(files[i].valid ? Color.Black : Color.Red);
             }
 
             xlWorkBook.SaveAs(xlFileOut, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);

@@ -32,14 +32,14 @@
             this.addItemButton = new System.Windows.Forms.Button();
             this.removeFileButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
+            this.openButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // videoFilesBox
             // 
             this.videoFilesBox.AllowDrop = true;
-            this.videoFilesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.videoFilesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.videoFilesBox.FormattingEnabled = true;
             this.videoFilesBox.IntegralHeight = false;
             this.videoFilesBox.ItemHeight = 15;
@@ -74,7 +74,7 @@
             // 
             // exportButton
             // 
-            this.exportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.exportButton.Location = new System.Drawing.Point(341, 218);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(75, 23);
@@ -83,11 +83,23 @@
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
+            // openButton
+            // 
+            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.openButton.Location = new System.Drawing.Point(174, 218);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(75, 23);
+            this.openButton.TabIndex = 4;
+            this.openButton.Text = "Open";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 253);
+            this.ClientSize = new System.Drawing.Size(671, 253);
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.removeFileButton);
             this.Controls.Add(this.addItemButton);
@@ -105,5 +117,6 @@
         private Button addItemButton;
         private Button removeFileButton;
         private Button exportButton;
+        private Button openButton;
     }
 }
