@@ -6,6 +6,7 @@ using System.ComponentModel.Composition.Primitives;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace vidrepGUI
             switch(exParams.sortBy)
             {
                 case ExportParameters.SortType.FileName:
-                    Array.Sort(data, (x, y) => String.Compare(x.filePath, y.filePath));
+                    Array.Sort(data, (x, y) => String.Compare(Path.GetFileName(x.filePath), Path.GetFileName(y.filePath)));
                     break;
                 case ExportParameters.SortType.DateCreated:
                     data = data.OrderBy(d => !d.valid ? DateTime.MinValue : DateTime.ParseExact(d.DateCreated, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture)).ToArray();
